@@ -8,7 +8,9 @@ import java.util.Random;
 public class Game {
     public static void main(String[] args) {
         Game games = new Game();
-        games.game();
+        for (int i = 0; i < 5; i++) {
+            games.game();
+        }
     }
 
     PlayerManager playerManager = new PlayerManager();
