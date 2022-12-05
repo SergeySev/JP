@@ -16,7 +16,8 @@ public class Game {
     PlayerManager playerManager = new PlayerManager();
 
     public void game() {
-        System.out.println("First lig - first play");
+        System.out.println("\nFirst lig - first play");
+
         List<Player> firstLig = playerManager.makeTeam(Lig.FIRST);
         List<Player> secondLig = playerManager.makeTeam(Lig.SECOND);
         List<Player> goldLig = playerManager.makeTeam(Lig.GOLD);
@@ -29,7 +30,7 @@ public class Game {
 
         playerManager.playersZeroPoint(firstLig);
         playerManager.playersZeroPoint(secondLig);
-
+        System.out.println("\nSecond lig - second play");
         match(secondLig);
 
         Collections.sort(secondLig);
@@ -39,7 +40,7 @@ public class Game {
         playerManager.playersZeroPoint(firstLig);
         playerManager.playersZeroPoint(secondLig);
         playerManager.playersZeroPoint(goldLig);
-
+        System.out.println("\nGold lig - third play");
         match(goldLig);
 
         Collections.sort(goldLig);
@@ -51,7 +52,7 @@ public class Game {
                 return o1.getAllGamePoint() - o2.getAllGamePoint();
             }
         });
-        System.out.println("Our third winners!");
+        System.out.println("\nOur third winners!");
         for (int i = 0; i < 3; i++) {
             System.out.println(goldLig.get((goldLig.size()-1) - i));
         }
