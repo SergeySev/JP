@@ -22,8 +22,8 @@ public class Algoritm {
 //        System.out.println(method(100,200));
 //        System.out.println(method(150,149));
 
-//        int[] array5 = {1};
-//        int[] array1 = {1, 1, 8};
+//        int[] array5 = {1,1,2,2,3};
+//        int[] array1 = {1, 8, 8};
 //        int[] array4 = {1, 8, 8};
 //        int[] array2 = {1, 1, 2, 6, 6};
 //        int[] array = {1, 1, 2, 2, 3, 3, 4, 5, 5, 6, 6, 7, 7, 8, 8};
@@ -33,7 +33,7 @@ public class Algoritm {
 //        int[] array14 = {1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16, 17};
 //        int[] array15 = {1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9, 10, 10, 11, 11, 12, 12, 13, 13, 14, 14, 15, 15, 16, 16};
 
-//        System.out.println(findOne(array5) + " " + (findOne(array5) == 1));
+//        System.out.println(findOne(array1));
 //        System.out.println(findOne(array1) + " " + (findOne(array1) == 8));
 //        System.out.println(findOne(array4) + " " + (findOne(array4) == 1));
 //        System.out.println(findOne(array2) + " " + (findOne(array2) == 2));
@@ -108,7 +108,7 @@ public class Algoritm {
     }
 
     // Best - O(n*2)
-    //Worst - O((n-1 - 1 - 1 ... -1)n * (n-1)*3)
+    //Worst - O(n log n)
     static int test4(int n) {
         int inCycle = 0;
         int inInCycle = 0;
@@ -140,11 +140,12 @@ public class Algoritm {
             count++;
 //            System.out.println("IF Count = " + count + " length " + array.length);
             return array[0];
-        } else if (array.length == 3) {
-            count++;
-//            System.out.println("ELSE IF Count = " + count + " length " + array.length);
-            return (array[1] != array[0]) ? array[0] : array[2];
         }
+//        else if (array.length == 3) {
+//            count++;
+////            System.out.println("ELSE IF Count = " + count + " length " + array.length);
+//            return (array[1] != array[0]) ? array[0] : array[2];
+//        }
         for (int i = 1; i < array.length - 1; i += 1) {
             count++;
             if (array[i] != array[i - 1] && array[i] != array[i + 1]) {
@@ -158,8 +159,8 @@ public class Algoritm {
 
 
     //    Задачки со звёздочкой - вычислить сложность в лучшем и худшем случае.
-    // Best = O(logn)
-    // Worst = O(n)
+    // Best = O(log n)
+    // Worst = O(log n)
     static int test5(int n) {
         int count = 0;
         int a = 0, i = n;
@@ -171,7 +172,7 @@ public class Algoritm {
         return count;
     }
 
-    // Best O(1)
+    // Best O(n)
     // Worst O(infinitive)
     static int method(int a, int b) {
         int count = 0;
@@ -187,14 +188,14 @@ public class Algoritm {
     }
 
     // Best - O(1)
-    // Worst - O(n*2 + 1)
+    // Worst - O(n*2 * n*2 * log n)
     static int method2(int n) {
         int count = 0;
-        for (int i = 0; i < n / 2; i++) { // O(n/2)
+        for (int i = 0; i < n / 2; i++) { // O(n*2)
             count++;
-            for (int j = 1; j + n / 2 <= n; j++) { // O(1 + n/2)
+            for (int j = 1; j + n / 2 <= n; j++) { // O(n*2)
                 count++;
-                for (int k = 1; k <= n; k = k * 2) { // n/2
+                for (int k = 1; k <= n; k = k * 2) { // O(log n)
                     count++;
 //                    System.out.println("I am expert!");
                 }
@@ -204,7 +205,7 @@ public class Algoritm {
     }
 
     // Best - O(1)
-    // Worst - O(n * n+1)
+    // Worst - O(n^2)
     static int method3(int n) {
         int count = 0;
         for (int i = 1; i <= n; i++) { // O(n)
