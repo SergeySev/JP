@@ -1,20 +1,34 @@
 package org.example.algoritm;
-/*
-First level: 1) Реализовать алгоритм бинарного поиска, который находит данный key в данном отстортированном массиве
-public int binarySearch(int[] arr, int key)
-Описание алгоритма из лекции
-    binary search
-    problem: find key in sorted array
-    returns index of key
-    arr = [1,4,7,9,12,15], key = 9
-    take element from the middle 7
-    compare to key 7 == 9 false
-    compare to key 7 < 9
-    if middle element less than key repeat procedure for right half of array
-    if middle element more  than key repeat procedure for left half of arr
- */
-
 import java.util.Arrays;
+
+/*
+    2 задание - переместить три диска.
+    START
+    Create massive with massive: {[3,2,1],[],[]}
+
+    Put 1 in third massive: {[3,2,1],[],[1]}
+    Delete 1 from first massive: {[3,2],[],[1]}
+
+    Put 2 in second massive: {[3,2],[2],[1]}
+    Delete 2 from first massive: {[3],[2],[1]}
+
+    Put 1 in second massive: {[3],[2,1],[1]}
+    Delete 1 from third massive: {[3],[2,1],[]}
+
+    Put 3 in third massive: {[3],[2,1],[3]}
+    Delete 3 from third massive: {[],[2,1],[3]}
+
+    Put 1 in first massive: {[1],[2,1],[3]}
+    Delete 1 from second massive: {[1],[2],[3]}
+
+    Put 2 in third massive: {[1],[2],[3,2]}
+    Delete 2 from second massive: {[1],[],[3,2]}
+
+    Put 1 in third massive: {[1],[],[3,2,1]}
+    Delete 1 from first massive: {[],[],[3,2,1]}
+
+    END
+ */
 
 public class BinarySearch {
     public static boolean isInArray(Integer[] originArray, final int key) {
@@ -70,14 +84,15 @@ public class BinarySearch {
         }
     }
 
-
     public static void main(String[] args) {
         Integer[] array = {1, 2, 3, 4, 5, 6, 7, 8};
-//        for (int i :
-//                array) {
-//            System.out.println(binarySearch(array, i, 0, array.length-1));
-//        }
-
+        for (int i :
+                array) {
+            System.out.println(binarySearch(array, i, 0, array.length - 1));
+        }
+        for (int i :
+                array) {
+            System.out.println(isInArray(array, i));
+        }
     }
-
 }
