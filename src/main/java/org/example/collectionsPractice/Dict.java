@@ -19,11 +19,7 @@ public class Dict {
         HashSet<String> check;
         if (this.dict.containsKey(key)) {
             check = this.dict.get(key);
-            for (String value : values) {
-                if (!check.contains(value)) {
-                    check.add(value);
-                }
-            }
+            check.addAll(values);
         } else this.dict.put(key, values);
     }
     public void remove(String key, String value) {
